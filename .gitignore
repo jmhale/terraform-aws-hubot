@@ -1,0 +1,12 @@
+# Ignore State files of all types
+.terraform
+terraform.tfstate
+terraform.tfstate.backup
+terraform.tfstate.*.backup
+
+# If we are running ansible ignore
+ansible/roles/*
+ansible/*.ini
+ansible/vars/extravars.yml
+ansible/ssh_config
+ansible/*.retry

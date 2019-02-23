@@ -11,7 +11,7 @@ Expects that a SSM parameter with the name of `hubot-slack-token` exists and tha
 
 ```
 module "terraform-hubot" {
-  source                    = "github.com/jmhale/terraform-hubot"
+  source                    = "git@github.com:jmhale/terraform-hubot.git"
   ssh_key_id                = "ssh-keypair-name-example"
   vpc_id                    = "vpc-0123456"
   public_subnet_ids         = ["subnet-1234567", "subnet-0987654"]

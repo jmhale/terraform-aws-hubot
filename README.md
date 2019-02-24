@@ -1,4 +1,4 @@
-# terraform-hubot
+# terraform-aws-hubot
 
 Terraform Module to deploy Hubot. This does a lot of the work to set up the necessary resources, but it still pulls down my custom Hubot code.
 

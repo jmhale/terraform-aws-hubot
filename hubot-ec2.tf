@@ -19,7 +19,7 @@ resource "aws_security_group" "hubot-instance-sg" {
 }
 
 resource "aws_instance" "hubot-instance" {
-  ami                    = "ami-da05a4a0"
+  ami                    = "${var.ami_id}"
   instance_type          = "t2.nano"
   key_name               = "${var.ssh_key_id}"
   subnet_id              = "${var.public_subnet_ids[0]}"

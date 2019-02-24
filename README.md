@@ -4,7 +4,7 @@ Terraform Module to deploy Hubot. This does a lot of the work to set up the nece
 
 You can edit the user-data of hubot-instance to pull your own.
 
-## Prerequsities
+## Prerequisites
 Expects that a SSM parameter with the name of `hubot-slack-token` exists and that the KMS key that the instance is using is able to decrypt that parameter.
 
 ## Usage

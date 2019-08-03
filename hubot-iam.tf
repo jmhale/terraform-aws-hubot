@@ -44,23 +44,24 @@ data "aws_iam_policy_document" "ec2-assume-role" {
 resource "aws_iam_policy" "access-hubot-parameters-policy" {
   name        = "tf-access-hubot-parameters"
   description = "Terraform Managed. Policy to allow access to Hubot parameters"
-  policy      = "${data.aws_iam_policy_document.access-hubot-parameters-policy-doc.json}"
+  policy      = data.aws_iam_policy_document.access-hubot-parameters-policy-doc.json
 }
 
 resource "aws_iam_role" "access-hubot-parameters-role" {
   name               = "tf-access-hubot-parameters"
   description        = "Terraform Managed. Role to allow access to Hubot parameters"
   path               = "/"
-  assume_role_policy = "${data.aws_iam_policy_document.ec2-assume-role.json}"
+  assume_role_policy = data.aws_iam_policy_document.ec2-assume-role.json
 }
 
 resource "aws_iam_policy_attachment" "attach-hubot-parameters-policy" {
   name       = "attach-hubot-parameters-policy"
-  roles      = ["${aws_iam_role.access-hubot-parameters-role.name}"]
-  policy_arn = "${aws_iam_policy.access-hubot-parameters-policy.arn}"
+  roles      = [aws_iam_role.access-hubot-parameters-role.name]
+  policy_arn = aws_iam_policy.access-hubot-parameters-policy.arn
 }
 
 resource "aws_iam_instance_profile" "access-hubot-parameters-profile" {
   name = "tf-access-hubot-parameters"
-  role = "${aws_iam_role.access-hubot-parameters-role.name}"
+  role = aws_iam_role.access-hubot-parameters-role.name
 }
+

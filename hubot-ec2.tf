@@ -30,9 +30,7 @@ resource "aws_instance" "hubot-instance" {
 #!/bin/bash
 apt-get update
 apt-get upgrade -y > /dev/null 2>&1
-apt-get install -y awscli python3-pip jq npm nodejs > /dev/null 2>&1
-pip install botocore --upgrade
-pip install boto3 --upgrade
+apt-get install -y awscli jq npm nodejs > /dev/null 2>&1
 npm install -g yo generator-hubot
 echo HUBOT_DISCORD_TOKEN=$(aws --region us-east-1 ssm get-parameter --name hubot-discord-token --with-decryption | jq -r '.Parameter.Value') | sudo tee -a /etc/environment
 echo REDIS_URL=redis://${aws_elasticache_cluster.hubot-redis.cache_nodes[0].address}:6379/dogbot | sudo tee -a /etc/environment

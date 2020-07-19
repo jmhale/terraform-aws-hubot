@@ -29,7 +29,7 @@ resource "aws_instance" "hubot-instance" {
   user_data = <<EOF
 #!/bin/bash
 apt-get update
-apt-get upgrade
+apt-get upgrade -y
 apt-get install -y awscli python-pip jq npm nodejs
 pip install botocore --upgrade
 pip install boto3 --upgrade

@@ -30,7 +30,7 @@ resource "aws_instance" "hubot-instance" {
 #!/bin/bash
 apt-get update
 apt-get upgrade -y > /dev/null 2>&1
-apt-get install -y awscli python-pip jq npm nodejs > /dev/null 2>&1
+apt-get install -y awscli python3-pip jq npm nodejs > /dev/null 2>&1
 pip install botocore --upgrade
 pip install boto3 --upgrade
 npm install -g yo generator-hubot
